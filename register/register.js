@@ -3,7 +3,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Select the "Add Participant" button
     const addParticipantButton = document.getElementById("add");
-    const participantsFieldset = document.getElementById("participants");
+    const summary = document.getElementById("summary")
+    const form = document.getElementById("form");
+
+
+    function submitForm(event) {
+        event.preventDefault()
+
+        const formData = new FormData(form)
+        const name = formData.get("adult_name")
+
+        const total = totalFees() 
+
+        console.log(`
+            name: ${name}
+            participants: ${participantCount}
+            total: ${total}
+        `)
+        const info = {
+            name: name,
+            participants: participantCount,
+            total: total
+        }
+
+        const resultsHTML = successTemplate(info)
+        console.log(`resultsHTML: ${resultsHTML}`)
+        form.style.display = "none"
+        summary.insertAdjacentHTML("afterend", resultsHTML)
+
+
+    }
+
+    form.addEventListener("submit", submitForm)
 
     // Event listener for "Add Participant" button
     addParticipantButton.addEventListener("click", function () {
@@ -16,21 +47,32 @@ document.addEventListener("DOMContentLoaded", function () {
         // Insert the new participant section before the "Add Participant" button
         addParticipantButton.insertAdjacentHTML("beforebegin", newParticipantHTML);
 
-        updateButtonPosition();
     });
 
-    function updateButtonPosition() {
-        const totalParticipants = document.querySelectorAll(".participant").length;
-        const addButtonContainer = addButton.parentElement;
-    
-        // Ensure the button always spans 2 columns and is at the bottom
-        if (totalParticipants % 2 === 1) {
-          addButtonContainer.style.gridColumn = "span 2"; // Push to full row
-        } else {
-          addButtonContainer.style.gridColumn = "1 / -1"; // Ensures it still spans full width
-        }
-      }
+   
+    function successTemplate(info) {
 
+        return `<p>Thank you ${info.name} for registering. You have registered ${info.participants} participants and owe $${info.total} in Fees.</p>`
+    }
+    function totalFees() {
+        // the selector below lets us grab any element that has an id that begins with "fee"
+        let feeElements = document.querySelectorAll("[id^=fee]");
+        console.log(feeElements);
+        // querySelectorAll returns a NodeList. It's like an Array, but not exactly the same.
+        // The line below is an easy way to convert something that is list-like to an actual Array so we can use all of the helpful Array methods...like reduce
+        // The "..." is called the spread operator. It "spreads" apart the list, then the [] we wrapped it in inserts those list items into a new Array.
+        feeElements = [...feeElements];
+        // sum up all of the fees. Something like Array.reduce() could be very helpful here :) Or you could use a Array.forEach() as well.
+        // Remember that the text that was entered into the input element will be found in the .value of the element.
+        let total = 0
+
+        for (const fee of feeElements){
+            total += parseFloat(fee.value)
+        }
+        return total
+        // once you have your total make sure to return it!
+        
+        }
     // Function to create a new participant section dynamically
     function participantTemplate(count) {
         return `
