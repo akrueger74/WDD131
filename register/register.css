@@ -154,6 +154,33 @@
   button:hover {
     background: #00b33c;
   }
+  .participants-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .participant {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Ensure the Add Participant button spans both columns */
+  .add-participant-container {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .participants-container {
+      grid-template-columns: 1fr; /* Stack participants in one column on smaller screens */
+    }
+  }
+  
   @media (max-width: 568px) {
     .columns div {
       width: 100%;
