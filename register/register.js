@@ -15,7 +15,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Insert the new participant section before the "Add Participant" button
         addParticipantButton.insertAdjacentHTML("beforebegin", newParticipantHTML);
+
+        updateButtonPosition();
     });
+
+    function updateButtonPosition() {
+        const totalParticipants = document.querySelectorAll(".participant").length;
+        const addButtonContainer = addButton.parentElement;
+    
+        // Ensure the button always spans 2 columns and is at the bottom
+        if (totalParticipants % 2 === 1) {
+          addButtonContainer.style.gridColumn = "span 2"; // Push to full row
+        } else {
+          addButtonContainer.style.gridColumn = "1 / -1"; // Ensures it still spans full width
+        }
+      }
 
     // Function to create a new participant section dynamically
     function participantTemplate(count) {
