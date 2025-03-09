@@ -2,7 +2,7 @@ import recipes from './recipes.mjs';
 console.log(recipes);
 
 document.addEventListener("DOMContentLoaded", () => {
-    const recipeContainer = document.getElementById("recipe-container");
+    const recipeContainer = document.getElementById("recipe-list");
     const searchInput = document.getElementById("search-input");
     
     
@@ -15,6 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${recipe.image}" alt="${recipe.name}">
                 <h3>${recipe.name}</h3>
                 <p>${recipe.description}</p>
+                <span
+                    class="rating"
+                    role="img"
+                    aria-label="Rating: 4 out of 5 stars"
+                >
+                    <span aria-hidden="true" class="icon-star">⭐</span>
+                    <span aria-hidden="true" class="icon-star">⭐</span>
+                    <span aria-hidden="true" class="icon-star">⭐</span>
+                    <span aria-hidden="true" class="icon-star-empty">⭐</span>
+                    <span aria-hidden="true" class="icon-star-empty">☆</span>
+                </span>
                 <button class="view-recipe" data-id="${recipe.id}">View Recipe</button>
             `;
             recipeContainer.appendChild(recipeCard);
