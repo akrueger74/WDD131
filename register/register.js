@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // sum up all of the fees. Something like Array.reduce() could be very helpful here :) Or you could use a Array.forEach() as well.
         // Remember that the text that was entered into the input element will be found in the .value of the element.
         let total = 0
+        // feeElements.forEach((f) => total += parseFloat(f.value))
 
         for (const fee of feeElements){
             total += parseFloat(fee.value)
