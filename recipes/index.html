@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Book</title>
-    <link rel="stylesheet" href="recipes.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Recipe Book</h1>
-        <input type="text" id="search" placeholder="Search recipes...">
     </header>
-    
     <main>
-        <aside>
-            <h2>Categories</h2>
-            <ul id="category-list"></ul>
-        </aside>
-        <section id="recipe-container">
-            <!-- Recipes will be dynamically added here -->
-        </section>
+        <div id="recipe-list"></div>
     </main>
-    
+    <footer>
+        <p>Recipe book icon provided by <a href="https://www.iconfinder.com/icons/123456/recipe_book">Iconfinder</a></p>
+        <div class="social">
+            <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
+            <a href="#"><img src="images/instagram_icon.svg" alt="instagram icon"></a>
+            <a href="#"><img src="images/youtube_icon.svg" alt="youtube icon"></a>
+            <a href="#"><img src="images/pinterest_icon.svg" alt="pinterest icon"></a>
+        </div>
+    </footer>
     <script src="recipes.mjs"></script>
     <script src="main.js"></script>
 </body>
