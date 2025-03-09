@@ -79,7 +79,11 @@ header {
     justify-content: center;
     align-items: center;
 }
-
+.favicon {
+    width: 32px;  /* Adjust as needed */
+    height: 32px;
+  }
+  
 .details-content {
     background: white;
     padding: 20px;
