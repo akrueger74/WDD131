@@ -1,7 +1,11 @@
+import recipes from './recipes.mjs';
+console.log(recipes);
+
 document.addEventListener("DOMContentLoaded", () => {
     const recipeContainer = document.getElementById("recipe-container");
     const searchInput = document.getElementById("search-input");
     const categoryButtons = document.querySelectorAll(".category-btn");
+    
     
     function displayRecipes(recipes) {
         recipeContainer.innerHTML = "";
