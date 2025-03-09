@@ -4,7 +4,6 @@ console.log(recipes);
 document.addEventListener("DOMContentLoaded", () => {
     const recipeContainer = document.getElementById("recipe-container");
     const searchInput = document.getElementById("search-input");
-    const categoryButtons = document.querySelectorAll(".category-btn");
     
     
     function displayRecipes(recipes) {
@@ -29,24 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
         displayRecipes(filteredRecipes);
     }
 
-    function filterByCategory(category) {
-        if (category === "all") {
-            displayRecipes(recipes);
-        } else {
-            const filteredRecipes = recipes.filter(recipe => recipe.category === category);
-            displayRecipes(filteredRecipes);
-        }
-    }
 
     searchInput.addEventListener("input", (e) => {
         searchRecipes(e.target.value);
     });
 
-    categoryButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            filterByCategory(button.dataset.category);
-        });
-    });
 
     displayRecipes(recipes);
 });

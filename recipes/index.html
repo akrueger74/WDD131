@@ -3,26 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Recipes">
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A Website for Recipes">
+    <meta property="og:image" content="/images/apple-crisp.jpg">
+    <meta property="og:url" content="URL of the page">
+    <meta name="twitter:card" content="/images/apple-crisp.jpge">
     <title>Recipe Book</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="recipes.css">
 </head>
 <body>
     <header>
         <h1>Recipe Book</h1>
     </header>
     <main>
+        <div id="search-bar">
+            <input id="search-input"/>
+            <button id="search-image"><img src="images/search.svg"/></button>
+        </div>
         <div id="recipe-list"></div>
+        <span
+            class="rating"
+            role="img"
+            aria-label="Rating: 4 out of 5 stars"
+        >
+            <span aria-hidden="true" class="icon-star">⭐</span>
+            <span aria-hidden="true" class="icon-star">⭐</span>
+            <span aria-hidden="true" class="icon-star">⭐</span>
+            <span aria-hidden="true" class="icon-star-empty">⭐</span>
+            <span aria-hidden="true" class="icon-star-empty">☆</span>
+        </span>
+
     </main>
     <footer>
-        <p>Recipe book icon provided by <a href="https://www.iconfinder.com/icons/123456/recipe_book">Iconfinder</a></p>
+        
         <div class="social">
             <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates  -->
             <a href="#"><img src="images/instagram_icon.svg" alt="instagram icon"></a>
             <a href="#"><img src="images/youtube_icon.svg" alt="youtube icon"></a>
             <a href="#"><img src="images/pinterest_icon.svg" alt="pinterest icon"></a>
         </div>
+        <p>Recipe book icon provided by <a href="https://www.iconfinder.com/icons/123456/recipe_book">Iconfinder</a></p>
     </footer>
-    <script src="recipes.mjs"></script>
-    <script src="main.js"></script>
+    <script type="module" src="recipes.mjs"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
