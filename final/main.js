@@ -3,9 +3,8 @@ import starwars from "./starwars.mjs";
 const container = document.querySelector('.image-container');
 const image = container.querySelector('img');
 const modal = document.getElementById('planetModal');
-const modalTitle = document.getElementById('modal-planet-title');
 const modalInfo = document.getElementById('modal-planet-info');
-const closeButton = document.querySelector('.close-button');
+const modalImage = document.getElementById('modal-planet-image');
 let originalImageWidth;
 let originalImageHeight;
 
@@ -43,22 +42,22 @@ function positionCircles() {
 }
 
 function openModal(planetData) {
-  console.log("Modal Opened")
-  modalTitle.textContent = planetData.planet;
 
+  modalImage.innerHTML =`
+    <img src="${planetData.image}" />
+  `
   modalInfo.innerHTML = `
-    <p>Planet Name: ${planetData.planet}</p>
+    <h3>${planetData.planet.toLowerCase()}</h3>
     <p>Region: ${planetData.region}</p>
     <p>Politics: ${planetData.politics}</p>
+    <p>${planetData.description}</p>
     `;
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 function closeModal() {
   modal.style.display = "none";
 }
-
-closeButton.addEventListener('click', closeModal);
 
 window.addEventListener('click', function(event) {
   if (event.target == modal) {
