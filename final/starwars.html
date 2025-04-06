@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Image Example</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="title-section">  
+        <h1>Star Wars Planets</h1>
+        <div id="search-bar">
+            <input id="search-input"/>
+        </div>
+    </div>
+    
+    <div class="image-container" id="imageContainer">
+        <img src="/final/images/map.png" alt="Base Image">
+    </div>
+
+    <div id="planetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-planet-title"></h2>
+            <div id="modal-planet-info"></div>
+        </div>
+    </div>
+
+    <script type="module" src="starwars.mjs"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
